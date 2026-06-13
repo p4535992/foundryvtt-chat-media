@@ -73,7 +73,7 @@ const emptyChatEventHandler = (sidebar) => async (evt) => {
 
   const messageData = {
     content: messageTemplate(imageQueue),
-    type: CONST.CHAT_MESSAGE_STYLES?.OOC || CONST.CHAT_MESSAGE_TYPES?.OOC || 1,
+    style: CONST.CHAT_MESSAGE_STYLES?.OOC || CONST.CHAT_MESSAGE_TYPES?.OOC || 1,
     user: game.user,
   };
   await ChatMessage.create(messageData);

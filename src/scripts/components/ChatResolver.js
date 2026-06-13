@@ -84,7 +84,7 @@ export class ChatResolver {
           subType: ChatResolver.CHAT_MESSAGE_SUB_TYPES.CIMAGE,
         };
 
-        chatData.type = CONST.CHAT_MESSAGE_STYLES?.IC || CONST.CHAT_MESSAGE_TYPES?.IC;
+        chatData.style = CONST.CHAT_MESSAGE_STYLES?.IC || CONST.CHAT_MESSAGE_TYPES?.IC;
         chatData.speaker = { alias: alias, scene: game.user.viewedScene };
         chatData.content = match[3].replace(/\n/g, "<br>");
         // Fall through...
@@ -123,7 +123,7 @@ export class ChatResolver {
           subType: ChatResolver.CHAT_MESSAGE_SUB_TYPES.CVIDEO,
         };
 
-        chatData.type = CONST.CHAT_MESSAGE_STYLES?.IC || CONST.CHAT_MESSAGE_TYPES?.IC;
+        chatData.style = CONST.CHAT_MESSAGE_STYLES?.IC || CONST.CHAT_MESSAGE_TYPES?.IC;
         chatData.speaker = { alias: alias, scene: game.user.viewedScene };
         chatData.content = match[3].replace(/\n/g, "<br>");
         // Fall through...
@@ -266,7 +266,7 @@ export class ChatResolver {
         messageData.message.flags ??= {};
         messageData.message.flags["chat-media"] = { subType: ChatResolver.CHAT_MESSAGE_SUB_TYPES.CIMAGE };
 
-        messageData.message.type = CONST.CHAT_MESSAGE_STYLES?.IC || CONST.CHAT_MESSAGE_TYPES?.IC;
+        messageData.message.style = CONST.CHAT_MESSAGE_STYLES?.IC || CONST.CHAT_MESSAGE_TYPES?.IC;
       }
     }
 
@@ -295,7 +295,7 @@ export class ChatResolver {
         messageData.message.flags ??= {};
         messageData.message.flags["chat-media"] = { subType: ChatResolver.CHAT_MESSAGE_SUB_TYPES.CIMAGE };
 
-        messageData.message.type = CONST.CHAT_MESSAGE_STYLES?.IC || CONST.CHAT_MESSAGE_TYPES?.IC;
+        messageData.message.style = CONST.CHAT_MESSAGE_STYLES?.IC || CONST.CHAT_MESSAGE_TYPES?.IC;
       }
     }
 
