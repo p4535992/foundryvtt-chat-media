@@ -3,7 +3,7 @@
     "name": "chat-media",
     "title": "Chat Media",
     "description": "Extends chat functionality with image and video support.",
-    "version": "13.0.2",
+    "version": "14.0.0",
     "authors": [
         {
             "name": "Marian#8010",
@@ -54,9 +54,9 @@
     "esmodules": ["module.js"],
     "styles": ["styles/chat-media.css", "styles/chat-message.css", "styles/spinner.css"],
     "compatibility": {
-        "minimum": 13,
-        "verified": 13,
-        "maximum": 13
+        "minimum": 14,
+        "verified": 14,
+        "maximum": 14
     },
     "url": "https://github.com/p4535992/foundryvtt-chat-media",
     "manifest": "https://github.com/p4535992/foundryvtt-chat-media/releases/download/13.0.2/module.json",
