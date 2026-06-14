@@ -1,3 +1,7 @@
+### 14.0.0
+
+- v14 compatibily https://github.com/p4535992/foundryvtt-chat-media/pull/18
+
 ### 13.0.2
 
 - clean up, style fixes, video playback and settings, ideas ty to @ThreeHats https://github.com/p4535992/foundryvtt-chat-media/pull/10
