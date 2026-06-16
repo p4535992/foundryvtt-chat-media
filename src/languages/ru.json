@@ -1,0 +1,26 @@
+{
+    "I18N.LANGUAGE": "Русский",
+    "I18N.MAINTAINERS": "nPocTo_4eJI",
+
+    "chat-media.uploadButtonTitle": "Загрузить изображение",
+    "chat-media.unableToLoadImage": "Не удается загрузить изображение",
+    "chat-media.uploadPermissions": "У Вас нет прав на загрузку",
+
+    "chat-media.uploadLocation": "Место хранения",
+    "chat-media.uploadLocationHint": "[Вступит в силу после перезагрузки] Место хранения загруженных изображений",
+
+    "chat-media.uploadButton": "Кнопка загрузки",
+    "chat-media.uploadButtonHint": "[Вступит в силу после перезагрузки] Отображать кнопку загрузки",
+
+    "chat-media.videoAutoplay": "Автовоспроизведение видео",
+    "chat-media.videoAutoplayHint": "Автоматическое воспроизведение видео, когда оно появляется в чате",
+
+    "chat-media.videoLoop": "Зацикливание видео",
+    "chat-media.videoLoopHint": "Непрерывное воспроизведение видеозаписей",
+
+    "chat-media.videoMuted": "Отключение звука для видео",
+    "chat-media.videoMutedHint": "Запуск видео с отключенным звуком по умолчанию",
+
+    "chat-media.videoControls": "Элементы управления видео",
+    "chat-media.videoControlsHint": "Показать элементы управления видеоплеером"
+}
