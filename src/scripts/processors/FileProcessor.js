@@ -261,15 +261,24 @@ export const processDropAndPasteImages = async (eventData, sidebar) => {
     for (let i = 0; i < urls.length; i++) {
       const url = urls[i];
       const saveValue = { imageSrc: url, id: randomString() };
+      // Try to fetch the image so it is uploaded and served by Foundry like any other
+      // file; if the remote host blocks it (e.g. CORS), keep linking the URL as before.
+      try {
+        if (/^(https?:|blob:|data:)/.test(url) && !url.startsWith(window.location.origin)) {
+          const res = await fetch(url);
+          const blob = res.ok ? await res.blob() : null;
+          if (blob && /^(image|video)\//.test(blob.type)) {
+            const extension = blob.type.split("/")[1].split("+")[0];
+            saveValue.type = blob.type;
+            saveValue.file = new File([blob], `${saveValue.id}.${extension}`, { type: blob.type });
+          }
+        }
+      } catch (error) {
+        console.warn("Chat Media: Could not fetch image to upload, linking URL instead", url, error);
+      }
       await addImageToQueue(saveValue, sidebar);
     }
   };
-
-  const urls = extractUrlFromEventData(eventData);
-  if (urls && urls.length) {
-    console.log("Chat Media: Processing URLs:", urls);
-    return await urlsFromEventDataHandler(urls);
-  }
 
   const extractFilesFromEventData = (eventData) => {
     console.log("Chat Media: Extracting files from event data", eventData);
@@ -322,6 +331,16 @@ export const processDropAndPasteImages = async (eventData, sidebar) => {
   if (filesExtracted && filesExtracted.length) {
     console.log("Chat Media: Processing files:", filesExtracted);
     return await processFiles(filesExtracted, sidebar);
+  }
+
+  // Only fall back to <img> URLs from the HTML payload when no actual file was provided.
+  // Copying an image in a browser puts both the file and an <img src> pointing at the
+  // original URL on the clipboard; that URL is often private (signed, session or cookie
+  // bound) and shows as a broken image for every other user.
+  const urls = extractUrlFromEventData(eventData);
+  if (urls && urls.length) {
+    console.log("Chat Media: Processing URLs:", urls);
+    return await urlsFromEventDataHandler(urls);
   }
 
   console.log("Chat Media: No files or URLs found to process");
